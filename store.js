@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userReducer, { login, logout } from './src/slices/userSice'
+import occupancyReducer, { set } from './src/slices/occupancySlice'
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
@@ -9,11 +10,13 @@ const persistConfig = {
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, userReducer)
+const persistedUserReducer = persistReducer(persistConfig, userReducer)
+const persistedOccupancyReducer = persistReducer(persistConfig, occupancyReducer)
 
 export const store = configureStore({
   reducer: {
-    user: persistedReducer
+    user: persistedUserReducer,
+    occupancy: persistedOccupancyReducer
   },
   middleware: [thunk]
 })
