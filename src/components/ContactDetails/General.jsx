@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import DatePickerField from '../DatePickerField'
-import { UpdateContact } from './functions'
+import { UpdateContact } from '../../helpers/functions'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
